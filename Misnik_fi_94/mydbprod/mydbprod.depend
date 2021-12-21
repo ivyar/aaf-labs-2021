@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1639987587 source:c:\users\alina\codeblocksprojects\prod\dbase.c
+1640100166 source:c:\users\alina\codeblocksprojects\prod\dbase.c
 	"dbase.h"
 	<stdlib.h>
 	<stdio.h>
@@ -16,7 +16,7 @@
 1639983089 c:\users\alina\codeblocksprojects\prod\dlist.h
 	<stdbool.h>
 
-1639987587 source:c:\users\alina\codeblocksprojects\prod\main.c
+1640096203 source:c:\users\alina\codeblocksprojects\prod\main.c
 	<string.h>
 	<stdlib.h>
 	"parser.h"
@@ -26,7 +26,7 @@
 	"dlist.h"
 	"dbase.h"
 
-1639983801 source:c:\users\alina\codeblocksprojects\prod\parse_comm.c
+1640100673 source:c:\users\alina\codeblocksprojects\prod\parse_comm.c
 	"parser.h"
 	<stdio.h>
 	<string.h>

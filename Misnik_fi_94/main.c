@@ -32,11 +32,11 @@ fgets(cmnd,80,stdin);//считываем из стандартного фала
 //fflush(stdin);
 //printf("cmnd-%s\n",cmnd);//печатем что получили для контроля
 parse_string(tree,cmnd);//парсим команду
-//dlist_list(tree);//вывод стека команды для контроля
+dlist_list(tree);//вывод стека команды для контроля
 parse_comm(tree,tables);//разбор команды
 //printf("cmnd=%s",cmnd);
 //puts("i home!!");
 //printf("%s\n",cmnd);
-} while (cmnd[0]!='q');//повторяем пока не получим quit
+} while (cmnd[0]!='E');//повторяем пока не получим exit
 return 0;//всё
 }

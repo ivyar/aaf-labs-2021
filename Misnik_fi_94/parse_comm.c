@@ -3,8 +3,8 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
-//printf("-stp-s=%s-\n",p->str);
-#define  _step if (p->next) {p=p->next;} else {puts("unexpected end");return -1;}
+
+#define  _step if (p->next) {p=p->next;printf("-stp-s=%s-\n",p->str);} else {puts("unexpected end");return -1;}
 #define  _stback p=p->prev;
 #define  _s p->str
 //printf("!p->str=%s!",p->str);
@@ -16,7 +16,7 @@
 #define  C_INSERT if (!strcmp(p->str,"INSERT")) while(1)  
 #define  C_SELECT if (!strcmp(p->str,"SELECT")) while(1) 
 #define  C_DELETE if (!strcmp(p->str,"DELETE")) while(1) 
-#define  C_DESCRIBE if (!strcmp(p->str,"DESCRIBE")) while(1) 
+#define  C_DESCRIBE if (!strcmp(p->str,"DESCRIBE")) while(1)
 
 
 
