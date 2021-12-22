@@ -177,14 +177,48 @@ col->table=NULL;//уходим из таблицы
 return col;
 }
 //------------------------------------ПОИСК СТОЛБЦА В ТАБЛИЦЕ
-dcol * table_find(dtable * table,char * name){//
-for (dcol * c = table->tail;c!=NULL;c=c->next)
-	if (!strcmp(c->name,name)) return c;
-return NULL;}
+//реализован далее
 //-------------------------------------В ТАБЛИЦЕ ЧТОТО ЕСТЬ?
 bool dtable_is_empty(dtable * table){
 if (!table->head&&!table->tail) return true;
 return false;}
+//------------------------------------ВЫВОД ТАБЛИЦЫ 
+unsigned int dtable_print_all (dtable * table){//
+puts("PRINT WHOLE TABLE");
+dcell * c;
+unsigned int ind = 0;
+unsigned int max_row=table->tail->count;//количество строк для вывода
+printf("Rows to print=%i\n",max_row);
+char * s;//
+
+//выводим заговолок - названия столбцов
+printf("+--+");//рисуем таблицу
+for (dcol * prn_col = table->head;prn_col!=NULL;prn_col=prn_col->prev) printf("--------------------+");
+printf("\n|No|");//печатаем псевдографику
+for (dcol * prn_col = table->head;prn_col!=NULL;prn_col=prn_col->prev) {
+			
+		printf("%20s|", prn_col->name);}
+		
+		
+printf("\n+--+");
+for (dcol * prn_col = table->head;prn_col!=NULL;prn_col=prn_col->prev) printf("--------------------+");
+//печатаем ячейки	
+  for(unsigned int  i = 1;i!=max_row+1;i++)  {//побегаем по строкам
+  	printf("\n|%2i|",ind);//псевдографика
+  	ind++;
+	for (dcol * prn_col = table->head;prn_col!=NULL;prn_col=prn_col->prev){//пробегаем по колонкам
+           c = dcol_find_cell_index(prn_col,i);//ищем строку в колонке по текущему индексу строки
+           
+           if (c) {printf ("%20s|",c->string);} else //печатаем если ячейка в колонке с таким индексом есть
+           		printf("%20s|","-NaN-");//если нет то данные не укaзны при добавлении колонки
+	}
+	}
+printf("\n+--+");
+for (dcol * prn_col = table->head;prn_col!=NULL;prn_col=prn_col->prev) printf("--------------------+");
+printf("\nPrinting succesfull...\n");
+return ind;}
+
+
 //-------------------------------------ВЫВОД ТАБЛИЦЫ НА ПЕЧАТЬ
 unsigned int dtable_print_todo (dptodo * todo){
 // функция печати таблицы согласно задания todo 

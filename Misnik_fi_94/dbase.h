@@ -64,8 +64,9 @@ dptodo * dtable_create_todo(dtable * table,char * colname);//создать за
 dptodo * dtable_todo_add(dptodo * todo,char * colname);//добавить к заданию
 dcol * dtable_find(dtable * table,char * colname);//поиск столбца по имени.
 bool dtable_is_empty(dtable * table);
-dcol * table_find(dtable * table,char * name);//
+dcol * dtable_find(dtable * table,char * name);//
 unsigned int dtable_print_todo (dptodo * todo);//
+unsigned int dtable_print_all (dtable * table);//
 //--------------------------COLUMN WORKING
 dcol * dcol_create(char * name, bool indexed);//создать колонку
 int dcol_add(dcol * col,dcell * cell);//

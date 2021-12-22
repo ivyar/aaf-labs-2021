@@ -3,8 +3,8 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
-
-#define  _step if (p->next) {p=p->next;printf("-stp-s=%s-\n",p->str);} else {puts("unexpected end");return -1;}
+//printf("-stp-s=%s-\n",p->str);puts("unexpected end");
+#define  _step if (p->next) {p=p->next;} else {return -10;}
 #define  _stback p=p->prev;
 #define  _s p->str
 //printf("!p->str=%s!",p->str);
