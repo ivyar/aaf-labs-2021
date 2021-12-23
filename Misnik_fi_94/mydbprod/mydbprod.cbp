@@ -49,6 +49,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../parser.h" />
+		<Unit filename="../stacks.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../stacks.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

@@ -198,11 +198,11 @@ printf("\n|No|");//печатаем псевдографику
 for (dcol * prn_col = table->head;prn_col!=NULL;prn_col=prn_col->prev) {
 			
 		printf("%20s|", prn_col->name);}
-		
-		
+
+
 printf("\n+--+");
 for (dcol * prn_col = table->head;prn_col!=NULL;prn_col=prn_col->prev) printf("--------------------+");
-//печатаем ячейки	
+//печатаем ячейки
   for(unsigned int  i = 1;i!=max_row+1;i++)  {//побегаем по строкам
   	printf("\n|%2i|",ind);//псевдографика
   	ind++;
@@ -236,11 +236,11 @@ printf("\n|No|");//печатаем псевдографику
 for (dptodo * prn_col = todo;prn_col!=NULL;prn_col=prn_col->next) {
 			
 		printf("%20s|", prn_col->col->name);}
-		
-		
+
+
 printf("\n+--+");
 for (dptodo * prn_col = todo;prn_col!=NULL;prn_col=prn_col->next) printf("--------------------+");
-//печатаем ячейки	
+//печатаем ячейки  
   for(unsigned int  i = 1;i!=max_row+1;i++)  {//побегаем по строкам
   	printf("\n|%2i|",ind);//псевдографика
   	ind++;
@@ -285,13 +285,13 @@ return NULL;} //если не нашли ничего то возвращаем 
 //--------------------------COLUMN WORKING
 //****************************************************************************
 //--------------------------------------СОЗДАНИЕ КОЛОНКИ
-dcol * dcol_create(char * name, bool indexed){//создаем колонку
+dcol * dcol_create(char * name, dindex * index){//создаем колонку
 dcol * p = (dcol *)malloc(sizeof(dcol));//выделяем память
 p->tail=NULL;//ячеек еще нет
 p->head=NULL;//
 p->count=0;//от слова совсем
 p->name=name;//задаем имя
-p->indexed=indexed;//индексируемая (или нет)
+p->indexed=index;//индексируемая (или нет)
 p->table=NULL;//таблица может и есть но не про её честь
 printf("Column by adress %p sucessfully created\n",p);
 return p;}//возвращаем указатель

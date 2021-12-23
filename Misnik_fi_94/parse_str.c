@@ -46,7 +46,7 @@ return false;
 
 
 
-void parse_string(dlist * list, char * str){//функция пополняет список синтаксичесими элементами из строки
+void parse_string(stacks ** root, char * str){//функция пополняет список синтаксичесими элементами из строки
 char len=0;//заводим счетчик символов для слов
 for (char * ch=str;*ch!=0x00;ch++){//пробегаем по строке указателем на символ
 	if (isCharacter(ch)) //если буква
@@ -56,13 +56,17 @@ if (len) {//если чтото есть
 	//printf(" len=%i\n",len);
 	char * s = (char*)malloc(sizeof(char)*len+1);//выделем память под нйденное и символ окончания строки
 	memcpy(s,ch-len,len);//копируем в выделенную память строку
-	s[len+1]=0;//добавляем окончание строки
-	dlist_add(list,dnode_add(s,NULL));//заносим в список
-	//printf("pased - %s\n",s);
+	s[len]=0;//добавляем окончание строки
+	//dlist_add(list,dnode_add(s,NULL));//заносим в список
+	stacks_push(root,s);
+	//printf("parsed - %s %i\n",s,strlen(s));
 	}len=0;//обнуляем счетчик
-if (isDivider(ch)) {char * c = (char*)malloc(sizeof(char));//если нашли разделитель выделяем под него память
+if (isDivider(ch)) {char * c = (char*)malloc(sizeof(char)+1);//если нашли разделитель выделяем под него память
 		    *c=*ch;//копируем значение
-			dlist_add(list,dnode_add(c,NULL));//заносим в список
-			/*printf("!\n");*/}
-}}      		
+		    c[1]=0;
+			stacks_push(root,c);
+			//dlist_add(list,dnode_add(c,NULL));//заносим в список
+			//printf("!%c\n",*c);
+			}
+}}      			
 
